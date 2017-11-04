@@ -3644,7 +3644,7 @@ class Util {
   }
 
   static hasIntl() {
-    return typeof Intl === 'undefined' && Intl.DateTimeFormat;
+    return typeof Intl !== 'undefined' && Intl.DateTimeFormat;
   }
 
   static hasFormatToParts() {
