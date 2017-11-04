@@ -4224,7 +4224,7 @@ var Util = function () {
   }, {
     key: 'hasIntl',
     value: function hasIntl() {
-      return !Util.isUndefined(Intl) && Intl.DateTimeFormat;
+      return typeof Intl === 'undefined' && Intl.DateTimeFormat;
     }
   }, {
     key: 'hasFormatToParts',
