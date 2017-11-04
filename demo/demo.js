@@ -2,8 +2,14 @@ function demo(luxon) {
   var DateTime = luxon.DateTime,
     examples = [],
     run = function(code) {
+      var result;
       try {
-        return JSON.stringify(eval(code));
+        result = eval(code);
+        if (result.isValid === false) {
+          return 'Invalid';
+        } else {
+          return JSON.stringify(result);
+        }
       } catch (e) {
         return '[error]';
       }
@@ -30,6 +36,9 @@ function demo(luxon) {
   );
   example(
     "DateTime.fromObject({year: 2017, month: 5, day: 15, hour: 17, minute: 36, zone: 'Asia/Singapore' })"
+  );
+  example(
+    "DateTime.fromObject({year: 2017, month: 5, day: 15, hour: 17, minute: 36, zone: 'Asia/adsfas' })"
   );
   example('DateTime.local().plus({minutes: 15, seconds: 8})');
   example('DateTime.local().plus({days: 6})');
